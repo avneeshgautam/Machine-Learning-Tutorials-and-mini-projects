@@ -30,7 +30,3 @@ def train_model(model, trainloader, MODEL_PATH, DEVICE, NUM_EPOCHS):
                 running_loss = 0.0
 
     print('Finished Training')
-
-    # Save the trained model
-    torch.save(model.state_dict(), MODEL_PATH)
-    print(f'Model saved at: {MODEL_PATH}')
