@@ -14,7 +14,7 @@ def main():
     parser.add_argument('mode', choices=['train', 'test'], help='Mode: train or test')
     parser.add_argument('--batch_size', type=int, default=4, help='Batch size for training/testing (default: 4)')
     parser.add_argument('--learning_rate', type=float, default=0.001, help='Learning rate for training (default: 0.001)')
-    parser.add_argument('--epoch', type=float, default=3, help='Number of epoch (default: 2)')
+    parser.add_argument('--epoch', type=int, default=3, help='Number of epoch (default: 2)')
     args = parser.parse_args()    
     
     MODEL_PATH = "model/cifar_cnn.pth"
