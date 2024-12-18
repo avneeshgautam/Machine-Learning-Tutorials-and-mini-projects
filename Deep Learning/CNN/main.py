@@ -43,12 +43,15 @@ def main():
             print(f"Model saved to '{MODEL_PATH}'.")
     
     elif args.mode == 'test':
-        print("Evaluating the model...")
-        # Load the trained model weights
-        model.load_state_dict(torch.load(MODEL_PATH, map_location=DEVICE))
-        accuracy = evaluate_model(model, testloader, DEVICE)
-        print(f'Accuracy of the network on the test dataset: {accuracy:.2f}%')
+        if os.path.exists(MODEL_PATH):
+            print("Evaluating the model...")
+            # Load the trained model weights
+            model.load_state_dict(torch.load(MODEL_PATH, map_location=DEVICE))
+            accuracy = evaluate_model(model, testloader, DEVICE)
+            print(f'Accuracy of the network on the test dataset: {accuracy:.2f}%')
 
+        else:
+            print(f"Model does not exist at '{MODEL_PATH}'. Please train the model first.")
 
 if __name__ == '__main__':
     main()
